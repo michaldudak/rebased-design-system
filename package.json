@@ -4,7 +4,9 @@
 	"description": "An exemplary design system implementation built using MUI Base",
 	"type": "module",
 	"main": "index.js",
-	"scripts": {},
+	"scripts": {
+		"build": "tsc -p src/tsconfig.json"
+	},
 	"keywords": [
 		"mui",
 		"base"
@@ -15,6 +17,8 @@
 		"@mui/base": "latest"
 	},
 	"devDependencies": {
+		"@emotion/styled": "^11.10.4",
+		"@tsconfig/esm": "^1.0.2",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"typescript": "^4.8.3"
