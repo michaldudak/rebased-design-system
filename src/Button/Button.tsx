@@ -35,7 +35,7 @@ export const Button = styled(ButtonUnstyled)(
 			font-family: 'Kanit', sans-serif;
 			font-size: ${fontSize};
 			padding: ${padding};
-			border-radius: 2px;
+			border-radius: 4px;
 			border: 2px solid var(--button-color);
 			outline-offset: 0;
 			outline: 0 solid var(--button-color);
