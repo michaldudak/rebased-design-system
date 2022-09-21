@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button, ButtonVariant } from './Button';
+import { Button, ButtonSize, ButtonVariant } from './Button';
 
 export default {
 	title: 'Button',
@@ -18,4 +18,5 @@ Default.args = {
 	children: 'Button',
 	disabled: false,
 	variant: ButtonVariant.filled,
+	size: ButtonSize.medium,
 };
