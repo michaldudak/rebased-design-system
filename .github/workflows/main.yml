@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
 
   workflow_dispatch:
 
@@ -22,4 +22,6 @@ jobs:
         run: yarn install
 
       - name: Publish to Chromatic
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         run: yarn chromatic
