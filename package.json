@@ -5,7 +5,9 @@
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
-		"build": "tsc -p src/tsconfig.json"
+		"build": "tsc -p src/tsconfig.json",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook"
 	},
 	"keywords": [
 		"mui",
@@ -17,8 +19,19 @@
 		"@mui/base": "latest"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.19.1",
+		"@emotion/react": "^11.10.4",
 		"@emotion/styled": "^11.10.4",
+		"@storybook/addon-actions": "^6.5.12",
+		"@storybook/addon-essentials": "^6.5.12",
+		"@storybook/addon-interactions": "^6.5.12",
+		"@storybook/addon-links": "^6.5.12",
+		"@storybook/builder-webpack4": "^6.5.12",
+		"@storybook/manager-webpack4": "^6.5.12",
+		"@storybook/react": "^6.5.12",
+		"@storybook/testing-library": "^0.0.13",
 		"@tsconfig/esm": "^1.0.2",
+		"babel-loader": "^8.2.5",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"typescript": "^4.8.3"
