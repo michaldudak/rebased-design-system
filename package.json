@@ -1,0 +1,26 @@
+{
+	"name": "plain-design-system",
+	"version": "0.0.1",
+	"description": "An exemplary design system implementation built using MUI Base",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {},
+	"keywords": [
+		"mui",
+		"base"
+	],
+	"author": "Michał Dudak",
+	"license": "MIT",
+	"dependencies": {
+		"@mui/base": "latest"
+	},
+	"devDependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"typescript": "^4.8.3"
+	},
+	"peerDependencies": {
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0"
+	}
+}
