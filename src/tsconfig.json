@@ -1,13 +1,14 @@
 {
 	"extends": "@tsconfig/esm/tsconfig.json",
 	"compilerOptions": {
-		"strict": true,
 		"declaration": true,
-		"outDir": "../build",
-		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"inlineSourceMap": true,
 		"jsx": "preserve",
-		"target": "ES2020",
-		"esModuleInterop": true
+		"moduleResolution": "node",
+		"outDir": "../build",
+		"strict": true,
+		"target": "ES2020"
 	},
 	"include": ["**/*"]
 }
