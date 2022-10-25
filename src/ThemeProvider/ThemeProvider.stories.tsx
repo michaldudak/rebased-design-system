@@ -17,7 +17,7 @@ interface ThemeCustomizerProps {
 	accentTextColor: string;
 }
 
-function ThemeCustomizer(props: ThemeCustomizerProps) {
+function ThemeCustomizer(_: ThemeCustomizerProps) {
 	return null;
 }
 

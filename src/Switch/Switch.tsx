@@ -3,7 +3,7 @@ import SwitchUnstyled, { SwitchUnstyledProps, SwitchUnstyledOwnerState } from '@
 import classes from './Switch.module.css';
 import clsx from 'clsx';
 
-export interface SwitchProps extends SwitchUnstyledProps {}
+export type SwitchProps = SwitchUnstyledProps;
 
 const getRootSlotProps = (state: SwitchUnstyledOwnerState) => {
 	const rootClasses = clsx({

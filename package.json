@@ -8,7 +8,8 @@
 		"build": "tsc -p tsconfig.json && vite build",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook",
-		"chromatic": "npx chromatic"
+		"chromatic": "npx chromatic",
+		"lint": "eslint . --cache --report-unused-disable-directives --ext .js,.cjs,.mjs,.ts,.tsx --max-warnings 0"
 	},
 	"keywords": [
 		"mui",
@@ -32,8 +33,12 @@
 		"@storybook/react": "^6.5.13",
 		"@storybook/testing-library": "^0.0.13",
 		"@tsconfig/esm": "^1.0.2",
+		"@typescript-eslint/eslint-plugin": "^5.41.0",
+		"@typescript-eslint/parser": "^5.41.0",
 		"babel-loader": "^8.2.5",
 		"chromatic": "^6.9.0",
+		"eslint": "^8.26.0",
+		"eslint-plugin-react": "^7.31.10",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"typescript": "^4.8.4",
