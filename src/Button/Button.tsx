@@ -1,3 +1,4 @@
+import * as React from 'react';
 import ButtonUnstyled, { ButtonUnstyledOwnerState, ButtonUnstyledProps } from '@mui/base/ButtonUnstyled';
 import clsx from 'clsx';
 import classes from './Button.module.css';
@@ -18,7 +19,7 @@ export interface ButtonProps extends ButtonUnstyledProps {
 	variant?: ButtonVariant;
 }
 
-export function Button(props: ButtonProps) {
+export const Button = React.forwardRef(function Button(props: ButtonProps, ref: React.ForwardedRef<HTMLButtonElement>) {
 	const { variant = ButtonVariant.filled, size = ButtonSize.medium, ...other } = props;
 
 	const getRootSlotProps = (state: ButtonUnstyledOwnerState) => {
@@ -35,5 +36,5 @@ export function Button(props: ButtonProps) {
 		return { className: rootClasses };
 	};
 
-	return <ButtonUnstyled {...other} slotProps={{ root: getRootSlotProps }} />;
-}
+	return <ButtonUnstyled {...other} slotProps={{ root: getRootSlotProps }} ref={ref} />;
+});
