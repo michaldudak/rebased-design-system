@@ -8,5 +8,5 @@ See all the components in [the Storybook hosted on Chromatic](https://main--632b
 You can also run the Storybook locally by executing `yarn storybook`.
 
 To build the project, run `yarn build`.
-Note that the output files are not bundled together.
-They are built as ES modules, so they can be consumed independently.
+The library is built and bundled with Vite.
+The output bundles and TypeScript definition files are created in the build directory.

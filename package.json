@@ -5,7 +5,7 @@
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
-		"build": "tsc -p src/tsconfig.build.json",
+		"build": "tsc -p tsconfig.json && vite build",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook",
 		"chromatic": "npx chromatic"
@@ -25,20 +25,21 @@
 		"@babel/core": "^7.19.1",
 		"@emotion/react": "^11.10.4",
 		"@emotion/styled": "^11.10.4",
-		"@storybook/addon-actions": "^6.5.12",
-		"@storybook/addon-essentials": "^6.5.12",
-		"@storybook/addon-interactions": "^6.5.12",
-		"@storybook/addon-links": "^6.5.12",
-		"@storybook/builder-webpack4": "^6.5.12",
-		"@storybook/manager-webpack4": "^6.5.12",
-		"@storybook/react": "^6.5.12",
+		"@storybook/addon-actions": "^6.5.13",
+		"@storybook/addon-essentials": "^6.5.13",
+		"@storybook/addon-interactions": "^6.5.13",
+		"@storybook/addon-links": "^6.5.13",
+		"@storybook/builder-vite": "^0.2.4",
+		"@storybook/react": "^6.5.13",
 		"@storybook/testing-library": "^0.0.13",
 		"@tsconfig/esm": "^1.0.2",
 		"babel-loader": "^8.2.5",
 		"chromatic": "^6.9.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"typescript": "^4.8.3"
+		"typescript": "^4.8.4",
+		"vite": "^3.1.8",
+		"vite-plugin-dts": "^1.6.6"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0",
