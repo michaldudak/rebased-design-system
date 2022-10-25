@@ -1,0 +1,36 @@
+.root {
+	--input-color: #116466;
+	background-color: transparent;
+	font-family: 'Kanit', sans-serif;
+	font-size: 0.875rem;
+	padding: 8px;
+	border-radius: 4px;
+	border: 2px solid var(--input-color);
+	outline-offset: 0;
+	outline: 0 solid var(--input-color);
+	transition: outline-width 0.1s ease-in, outline-offset 0.1s ease-in;
+	color: var(--input-color);
+}
+
+.root:hover:where(:not(.disabled)) {
+	outline-width: 1px;
+	outline-offset: 2px;
+}
+
+.root:focus-visible {
+	outline-width: 2px;
+	outline-offset: 2px;
+}
+
+.small {
+	padding: 4px;
+}
+
+.large {
+	padding: 16px;
+	font-size: 1rem;
+}
+
+.disabled {
+	opacity: 0.5;
+}
