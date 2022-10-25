@@ -10,3 +10,8 @@ You can also run the Storybook locally by executing `yarn storybook`.
 To build the project, run `yarn build`.
 The library is built and bundled with Vite.
 The output bundles and TypeScript definition files are created in the build directory.
+
+## Libraries used
+
+* [MUI Base](https://github.com/mui/material-ui) - provides logic and accessibility support for all controls.
+* [clsx](https://github.com/lukeed/clsx) - helps constructing class names for components.
