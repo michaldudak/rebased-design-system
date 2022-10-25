@@ -1,5 +1,6 @@
 .root {
-	--button-color: #116466;
+	--button-color: var(--main-color, #888);
+	--text-color: var(--main-text-color, #fff);
 	font-family: 'Kanit', sans-serif;
 	font-size: 0.875rem;
 	padding: 6px 14px;
@@ -12,7 +13,7 @@
 
 .filled {
 	background-color: var(--button-color);
-	color: #fff;
+	color: var(--text-color);
 }
 
 .outlined {

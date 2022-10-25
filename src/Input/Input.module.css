@@ -1,5 +1,5 @@
 .root {
-	--input-color: #116466;
+	--input-color: var(--main-color, #888);
 	background-color: transparent;
 	font-family: 'Kanit', sans-serif;
 	font-size: 0.875rem;
