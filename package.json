@@ -19,7 +19,8 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"@mui/base": "latest"
+		"@mui/base": "^5.0.0-alpha.103",
+		"clsx": "^1.2.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.19.1",

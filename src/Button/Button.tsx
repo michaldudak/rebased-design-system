@@ -1,5 +1,6 @@
-import ButtonUnstyled, { ButtonUnstyledProps, buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
-import styled from '@emotion/styled';
+import ButtonUnstyled, { ButtonUnstyledOwnerState, ButtonUnstyledProps } from '@mui/base/ButtonUnstyled';
+import clsx from 'clsx';
+import classes from './Button.module.css';
 
 export enum ButtonVariant {
 	filled = 'filled',
@@ -17,49 +18,22 @@ export interface ButtonProps extends ButtonUnstyledProps {
 	variant?: ButtonVariant;
 }
 
-export const Button = styled(ButtonUnstyled)(
-	({ variant = ButtonVariant.filled, size = ButtonSize.medium }: ButtonProps) => {
-		let padding: string;
-		let fontSize = '0.875rem';
-		if (size === ButtonSize.small) {
-			padding = '2px 6px';
-		} else if (size === ButtonSize.medium) {
-			padding = '6px 14px';
-		} else {
-			padding = '10px 22px';
-			fontSize = '1rem';
-		}
-		return `
-			--button-color: #116466;
-			background-color: ${variant === ButtonVariant.filled ? 'var(--button-color)' : 'transparent'};
-			font-family: 'Kanit', sans-serif;
-			font-size: ${fontSize};
-			padding: ${padding};
-			border-radius: 4px;
-			border: 2px solid var(--button-color);
-			outline-offset: 0;
-			outline: 0 solid var(--button-color);
-			transition: outline-width 0.1s ease-in, outline-offset 0.1s ease-in;
-			color: ${variant === ButtonVariant.filled ? '#fff' : 'var(--button-color)'};
+export function Button(props: ButtonProps) {
+	const { variant = ButtonVariant.filled, size = ButtonSize.medium, ...other } = props;
 
-			&:hover:where(:not(.${buttonUnstyledClasses.disabled})) {
-				outline-width: 1px;
-				outline-offset: 2px;
-			}
+	const getRootSlotProps = (state: ButtonUnstyledOwnerState) => {
+		const rootClasses = clsx({
+			[classes.root]: true,
+			[classes.filled]: variant === ButtonVariant.filled,
+			[classes.outlined]: variant === ButtonVariant.outlined,
+			[classes.small]: size === ButtonSize.small,
+			[classes.large]: size === ButtonSize.large,
+			[classes.active]: state.active,
+			[classes.disabled]: state.disabled,
+		});
 
-			&:focus-visible {
-				outline-width: 2px;
-				outline-offset: 2px;
-			}
+		return { className: rootClasses };
+	};
 
-			&.${buttonUnstyledClasses.disabled} {
-				opacity: 0.5;
-			}
-
-			&.${buttonUnstyledClasses.active} {
-				outline-offset: 4px;
-				transition: outline-offset 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			}
-		`;
-	}
-) as React.FC<ButtonProps>;
+	return <ButtonUnstyled {...other} slotProps={{ root: getRootSlotProps }} />;
+}
