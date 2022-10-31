@@ -8,8 +8,8 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: './src/index.ts',
-			name: 'PlainDesignSystem',
-			fileName: 'plain-design-system',
+			name: 'RebasedDesignSystem',
+			fileName: 'rebased-design-system',
 			formats: ['es', 'umd'],
 		},
 		outDir: './build',

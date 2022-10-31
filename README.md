@@ -1,4 +1,4 @@
-# Plain Design System
+# Rebased Design System
 
 This repository hosts the design system components built with MUI Base.
 

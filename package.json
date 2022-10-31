@@ -1,5 +1,5 @@
 {
-	"name": "plain-design-system",
+	"name": "rebased-design-system",
 	"version": "0.0.1",
 	"description": "An exemplary design system implementation built using MUI Base",
 	"type": "module",
@@ -48,6 +48,5 @@
 	"peerDependencies": {
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0"
-	},
-	"_id": "plain-design-system@0.0.1"
+	}
 }
