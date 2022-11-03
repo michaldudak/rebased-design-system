@@ -1,0 +1,28 @@
+.root {
+	--option-highlighted-color: var(--accent-color, #444);
+	--text-highlighted-color: var(--text-on-accent-color, #ccc);
+	--option-selected-color: var(--accent-color, #444);
+	--text-selected-color: var(--text-on-accent-color, #ccc);
+	padding: 2px 4px;
+	margin: 2px 0;
+	border-radius: 4px;
+
+	outline: 0 solid var(--option-highlighted-color);
+	outline-offset: 0;
+	transition: outline-width 0.1s ease-in, outline-offset 0.1s ease-in;
+}
+
+.root:hover {
+	outline-width: 1px;
+	outline-offset: 0px;
+}
+
+.root.highlighted {
+	outline-width: 2px;
+	outline-offset: 0px;
+}
+
+.root.selected {
+	background-color: var(--option-selected-color);
+	color: var(--text-selected-color);
+}

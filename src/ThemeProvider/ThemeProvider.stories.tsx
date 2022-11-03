@@ -1,9 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeProvider, Theme } from './ThemeProvider';
+import { ThemeProvider, Theme } from '.';
 import { Button } from '../Button';
 import { Input } from '../Input';
 import { Switch } from '../Switch';
+import { Select, Option } from '../Select';
 
 export default {
 	title: 'ThemeProvider',
@@ -40,6 +41,11 @@ const Template: ComponentStory<typeof ThemeCustomizer> = (args) => {
 				<Button>Button</Button>
 				<Input />
 				<Switch />
+				<Select>
+					<Option value={1}>One</Option>
+					<Option value={2}>Two</Option>
+					<Option value={3}>Three</Option>
+				</Select>
 			</div>
 		</ThemeProvider>
 	);

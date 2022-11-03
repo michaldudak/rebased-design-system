@@ -16,6 +16,15 @@ module.exports = {
 	},
 	plugins: ['react', '@typescript-eslint'],
 	rules: {
+		'@typescript-eslint/ban-types': [
+			'error',
+			{
+				extendDefaults: true,
+				types: {
+					'{}': false,
+				},
+			},
+		],
 		'@typescript-eslint/no-unused-vars': [
 			'warn',
 			{
