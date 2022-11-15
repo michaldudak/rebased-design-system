@@ -16,6 +16,9 @@ interface ThemeCustomizerProps {
 	mainTextColor: string;
 	accentColor: string;
 	accentTextColor: string;
+	backgroundColor: string;
+	backgroundTextColor: string;
+	borderRadius: string;
 }
 
 function ThemeCustomizer(_: ThemeCustomizerProps) {
@@ -30,6 +33,9 @@ const Template: ComponentStory<typeof ThemeCustomizer> = (args) => {
 				mainText: args.mainTextColor,
 				accent: args.accentColor,
 				accentText: args.accentTextColor,
+			},
+			shape: {
+				borderRadius: args.borderRadius,
 			},
 		}),
 		[args.mainColor, args.mainTextColor, args.accentColor, args.accentTextColor]
@@ -57,4 +63,7 @@ Default.args = {
 	mainTextColor: '#fff',
 	accentColor: '#111',
 	accentTextColor: '#fff',
+	backgroundColor: '#fff',
+	backgroundTextColor: '#000',
+	borderRadius: '4px',
 };

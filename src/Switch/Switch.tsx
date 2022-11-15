@@ -10,6 +10,7 @@ const getRootSlotProps = (state: SwitchUnstyledOwnerState) => {
 		[classes.root]: true,
 		[classes.disabled]: state.disabled,
 		[classes.checked]: state.checked,
+		[classes.focusVisible]: state.focusVisible,
 	});
 
 	return { className: rootClasses };

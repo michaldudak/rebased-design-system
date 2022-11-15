@@ -1,20 +1,28 @@
 .root {
-	--option-highlighted-color: var(--accent-color, #444);
-	--text-highlighted-color: var(--text-on-accent-color, #ccc);
-	--option-selected-color: var(--accent-color, #444);
-	--text-selected-color: var(--text-on-accent-color, #ccc);
-	padding: 2px 4px;
-	margin: 2px 0;
-	border-radius: 4px;
+	--option-highlighted-color: var(--color-accent, #444);
+	--text-highlighted-color: var(--color-accent-text, #ccc);
+	--option-selected-color: var(--color-accent, #444);
+	--text-selected-color: var(--color-accent-text, #ccc);
 
+	padding: 2px 4px;
+	margin: 0 0 8px 0;
+	border-radius: calc(var(--shape-border-radius, 4px) - 4px);
 	outline: 0 solid var(--option-highlighted-color);
 	outline-offset: 0;
 	transition: outline-width 0.1s ease-in, outline-offset 0.1s ease-in;
+	user-select: none;
+	outline-offset: -1px;
+	outline: 0 solid var(--option-highlighted-color);
+	transition: outline-width 0.1s ease-in, outline-offset 0.1s ease-in;
+}
+
+.root:last-child {
+	margin-bottom: 0;
 }
 
 .root:hover {
 	outline-width: 1px;
-	outline-offset: 0px;
+	outline-offset: 1px;
 }
 
 .root.highlighted {

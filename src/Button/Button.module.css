@@ -1,24 +1,41 @@
 .root {
-	--button-color: var(--main-color, #888);
-	--text-color: var(--main-text-color, #fff);
 	font-family: 'Kanit', sans-serif;
 	font-size: 0.875rem;
 	padding: 6px 14px;
-	border-radius: 4px;
-	border: 2px solid var(--button-color);
+	border-radius: var(--shape-border-radius, 4px);
+	border: 2px solid var(--border-color);
 	outline-offset: 0;
-	outline: 0 solid var(--button-color);
+	outline: 0 solid var(--outline-color);
 	transition: outline-width 0.1s ease-in, outline-offset 0.1s ease-in;
-}
-
-.filled {
 	background-color: var(--button-color);
 	color: var(--text-color);
 }
 
+.filled {
+	--button-color: var(--color-main, #888);
+	--text-color: var(--color-main-text, #fff);
+	--border-color: transparent;
+	--outline-color: var(--color-main, #888);
+}
+
 .outlined {
-	background-color: transparent;
-	color: var(--button-color);
+	--button-color: var(--color-background, transparent);
+	--text-color: var(--color-background-text, #000);
+	--border-color: var(--color-main, #888);
+	--outline-color: var(--color-main, #888);
+}
+
+.accented.filled {
+	--button-color: var(--color-accent, #999);
+	--text-color: var(--color-accent-text, #fff);
+	--outline-color: var(--color-accent, #999);
+}
+
+.accented.outlined {
+	--button-color: var(--color-background, transparent);
+	--text-color: var(--color-accented, #000);
+	--border-color: var(--color-accented, #999);
+	--outline-color: var(--color-accented, #999);
 }
 
 .root.small {
@@ -40,11 +57,15 @@
 	outline-offset: 2px;
 }
 
-.disabled {
+.root.disabled {
 	opacity: 0.5;
 }
 
-.active {
+.root.active {
 	outline-offset: 4px;
 	transition: outline-offset 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.root.active:focus-visible {
+	outline-offset: 1px;
 }

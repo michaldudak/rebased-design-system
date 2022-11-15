@@ -6,6 +6,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "tsc -p tsconfig.json && vite build",
+		"dev": "yarn storybook",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook",
 		"chromatic": "npx chromatic",

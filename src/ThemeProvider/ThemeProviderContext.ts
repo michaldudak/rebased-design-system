@@ -6,6 +6,11 @@ export interface Theme {
 		mainText?: string;
 		accent?: string;
 		accentText?: string;
+		background?: string;
+		backgroundText?: string;
+	};
+	shape: {
+		borderRadius?: string;
 	};
 }
 

@@ -1,16 +1,30 @@
 .root {
-	--switch-color: var(--main-color, #888);
+	--switch-color: var(--color-main, #888);
 	font-size: 0;
 	position: relative;
 	display: inline-block;
 	width: 40px;
 	height: 24px;
-	cursor: pointer;
+	outline-offset: 0;
+	outline: 0 solid var(--switch-color);
+	transition: outline-width 0.1s ease-in, outline-offset 0.1s ease-in;
+	border-radius: 16px;
 }
 
 .root.disabled {
 	--switch-color: #ccc;
 	cursor: default;
+}
+
+/* TODO: use :focus-visible after https://github.com/mui/material-ui/issues/34986 is resolved */
+.root.focusVisible {
+	outline-width: 2px;
+	outline-offset: 2px;
+}
+
+.root:hover:where(:not(.disabled)) {
+	outline-width: 1px;
+	outline-offset: 2px;
 }
 
 .track {

@@ -18,4 +18,5 @@ Default.args = {
 	disabled: false,
 	variant: ButtonVariant.filled,
 	size: ButtonSize.medium,
+	accented: false,
 };

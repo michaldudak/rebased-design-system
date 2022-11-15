@@ -1,50 +1,33 @@
 import * as React from 'react';
-import { Theme, ThemeProviderContext } from './ThemeProviderContext';
+import { Theme } from './ThemeProviderContext';
 
 export interface ThemeProviderProps {
 	children: React.ReactNode;
 	theme: Theme;
 }
 
-function setTheme(theme: Theme, elementRef: React.RefObject<HTMLDivElement>) {
-	if (!elementRef.current) {
-		return;
-	}
-
-	const style = elementRef.current.style;
-
-	style.setProperty('--main-color', theme.colors.main ?? null);
-	style.setProperty('--main-text-color', theme.colors.mainText ?? null);
-	style.setProperty('--accent-color', theme.colors.accent ?? null);
-	style.setProperty('--accent-text-color', theme.colors.accentText ?? null);
+function camelToKebab(text: string) {
+	return text.replace(/[A-Z]/g, (char) => `-${char.toLowerCase()}`);
 }
 
-export const ThemeProvider = React.forwardRef(function ThemeProvider(props: ThemeProviderProps, ref) {
+function generateCssProperties(theme: Theme) {
+	const properties = new Map<string, string>();
+
+	Object.entries(theme.colors).forEach(([name, value]) => {
+		properties.set(`--color-${camelToKebab(name)}`, value);
+	});
+
+	Object.entries(theme.shape).forEach(([name, value]) => {
+		properties.set(`--shape-${camelToKebab(name)}`, value);
+	});
+
+	return Object.fromEntries(properties) as React.CSSProperties;
+}
+
+export function ThemeProvider(props: ThemeProviderProps) {
 	const { children, theme } = props;
-	const elementRef = React.useRef<HTMLDivElement>(null);
 
-	React.useImperativeHandle(
-		ref,
-		() => ({
-			setTheme: (theme: Theme) => setTheme(theme, elementRef),
-		}),
-		[elementRef]
-	);
+	const cssProperties = React.useMemo(() => generateCssProperties(theme), [theme]);
 
-	React.useLayoutEffect(() => {
-		setTheme(theme, elementRef);
-	}, [theme, elementRef]);
-
-	const contextValue = React.useMemo(
-		() => ({
-			setTheme: (theme: Theme) => setTheme(theme, elementRef),
-		}),
-		[elementRef]
-	);
-
-	return (
-		<ThemeProviderContext.Provider value={contextValue}>
-			<div ref={elementRef}>{children}</div>
-		</ThemeProviderContext.Provider>
-	);
-});
+	return <div style={cssProperties}>{children}</div>;
+}
