@@ -16,7 +16,6 @@
 		"build": "tsc -p tsconfig.json && vite build",
 		"dev": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
-		"chromatic": "npx chromatic",
 		"lint": "eslint . --cache --report-unused-disable-directives --ext .js,.cjs,.mjs,.ts,.tsx --max-warnings 0"
 	},
 	"keywords": [
