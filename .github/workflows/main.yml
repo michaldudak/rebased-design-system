@@ -15,19 +15,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3.4.1
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2.4.0
+
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v3.8.1
         with:
-          node-version: 16.x
-          cache: yarn
+          node-version: 18.x
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
 
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
 
       - name: Publish to Chromatic
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-        run: yarn chromatic
+        run: pnpm chromatic

@@ -5,9 +5,9 @@ This repository hosts the design system components built with MUI Base.
 It serves as a reference for builing custom design systems.
 
 See all the components in [the Storybook hosted on Chromatic](https://main--632b14aec65017358bd54b76.chromatic.com).  
-You can also run the Storybook locally by executing `yarn storybook`.
+You can also run the Storybook locally by executing `pnpm storybook`.
 
-To build the project, run `yarn build`.
+To build the project, run `pnpm build`.
 The library is built and bundled with Vite.
 The output bundles and TypeScript definition files are created in the build directory.
 

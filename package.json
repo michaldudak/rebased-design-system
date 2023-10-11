@@ -6,8 +6,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "tsc -p tsconfig.json && vite build",
-		"dev": "yarn storybook",
-		"storybook": "start-storybook -p 6006",
+		"dev": "start-storybook -p 6006",
 		"build-storybook": "build-storybook",
 		"chromatic": "npx chromatic",
 		"lint": "eslint . --cache --report-unused-disable-directives --ext .js,.cjs,.mjs,.ts,.tsx --max-warnings 0"
@@ -20,6 +19,7 @@
 		"name": "Michał Dudak"
 	},
 	"license": "MIT",
+	"packageManager": "pnpm@8.9.0",
 	"dependencies": {
 		"@mui/base": "5.0.0-beta.19",
 		"clsx": "^1.2.1"
