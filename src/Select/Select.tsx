@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SelectUnstyled, { SelectUnstyledOwnerState, SelectUnstyledProps } from '@mui/base/SelectUnstyled';
+import { Select as BaseSelect, SelectOwnerState, SelectProps as BaseSelectProps } from '@mui/base/Select';
 import classes from './Select.module.css';
 import clsx from 'clsx';
 
@@ -8,7 +8,7 @@ export enum SelectButtonVariant {
 	outlined = 'outlined',
 }
 
-export interface SelectProps<Value extends {}> extends SelectUnstyledProps<Value> {
+export interface SelectProps<Value extends {}> extends BaseSelectProps<Value, false, 'button'> {
 	variant?: SelectButtonVariant;
 }
 
@@ -23,7 +23,7 @@ export const Select = React.forwardRef(function Select<Value extends {}>(
 	const { variant = SelectButtonVariant.filled, ...other } = props;
 
 	const getRootSlotProps = React.useCallback(
-		function getRootSlotProps<Value extends {}>(state: SelectUnstyledOwnerState<Value>) {
+		function getRootSlotProps<Value extends {}>(state: SelectOwnerState<Value, false>) {
 			const rootClasses = clsx({
 				[classes.root]: true,
 				[classes.active]: state.active,
@@ -38,5 +38,5 @@ export const Select = React.forwardRef(function Select<Value extends {}>(
 		[variant]
 	);
 
-	return <SelectUnstyled {...other} slotProps={{ root: getRootSlotProps, listbox: listboxSlotProps }} ref={ref} />;
+	return <BaseSelect<Value> {...other} slotProps={{ root: getRootSlotProps, listbox: listboxSlotProps }} ref={ref} />;
 });

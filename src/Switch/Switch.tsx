@@ -1,11 +1,11 @@
 import * as React from 'react';
-import SwitchUnstyled, { SwitchUnstyledProps, SwitchUnstyledOwnerState } from '@mui/base/SwitchUnstyled';
-import classes from './Switch.module.css';
+import { Switch as BaseSwitch, SwitchOwnerState, SwitchProps as BaseSwitchProps } from '@mui/base/Switch';
 import clsx from 'clsx';
+import classes from './Switch.module.css';
 
-export type SwitchProps = SwitchUnstyledProps;
+export type SwitchProps = BaseSwitchProps;
 
-const getRootSlotProps = (state: SwitchUnstyledOwnerState) => {
+const getRootSlotProps = (state: SwitchOwnerState) => {
 	const rootClasses = clsx({
 		[classes.root]: true,
 		[classes.disabled]: state.disabled,
@@ -30,5 +30,5 @@ const slotProps = {
 };
 
 export const Switch = React.forwardRef(function Switch(props: SwitchProps, ref: React.ForwardedRef<HTMLSpanElement>) {
-	return <SwitchUnstyled {...props} slotProps={slotProps} ref={ref} />;
+	return <BaseSwitch {...props} slotProps={slotProps} ref={ref} />;
 });
