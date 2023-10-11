@@ -1,15 +1,17 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeProvider, Theme } from '.';
 import { Button } from '../Button';
 import { Input } from '../Input';
 import { Switch } from '../Switch';
 import { Select, Option } from '../Select';
 
-export default {
+const meta: Meta<typeof ThemeProvider> = {
 	title: 'ThemeProvider',
 	component: ThemeProvider,
-} as ComponentMeta<typeof ThemeProvider>;
+};
+
+export default meta;
 
 interface ThemeCustomizerProps {
 	mainColor: string;
@@ -25,20 +27,20 @@ function ThemeCustomizer(_: ThemeCustomizerProps) {
 	return null;
 }
 
-const Template: ComponentStory<typeof ThemeCustomizer> = (args) => {
+const Template = (props: ThemeCustomizerProps) => {
 	const theme: Theme = React.useMemo(
 		() => ({
 			colors: {
-				main: args.mainColor,
-				mainText: args.mainTextColor,
-				accent: args.accentColor,
-				accentText: args.accentTextColor,
+				main: props.mainColor,
+				mainText: props.mainTextColor,
+				accent: props.accentColor,
+				accentText: props.accentTextColor,
 			},
 			shape: {
-				borderRadius: args.borderRadius,
+				borderRadius: props.borderRadius,
 			},
 		}),
-		[args.mainColor, args.mainTextColor, args.accentColor, args.accentTextColor]
+		[props.mainColor, props.mainTextColor, props.accentColor, props.accentTextColor]
 	);
 
 	return (
@@ -57,13 +59,17 @@ const Template: ComponentStory<typeof ThemeCustomizer> = (args) => {
 	);
 };
 
-export const Default = Template.bind({});
-Default.args = {
-	mainColor: '#888',
-	mainTextColor: '#fff',
-	accentColor: '#111',
-	accentTextColor: '#fff',
-	backgroundColor: '#fff',
-	backgroundTextColor: '#000',
-	borderRadius: '4px',
+type Story = StoryObj<typeof ThemeCustomizer>;
+
+export const Default: Story = {
+	args: {
+		mainColor: '#888',
+		mainTextColor: '#fff',
+		accentColor: '#111',
+		accentTextColor: '#fff',
+		backgroundColor: '#fff',
+		backgroundTextColor: '#000',
+		borderRadius: '4px',
+	},
+	render: (args) => <Template {...args} />,
 };

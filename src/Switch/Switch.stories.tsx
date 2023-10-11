@@ -1,18 +1,22 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Switch } from './Switch';
 
-export default {
+const meta: Meta<typeof Switch> = {
 	title: 'Switch',
 	component: Switch,
 	argTypes: {
 		ref: { table: { disable: true } },
-		component: { table: { disable: true } },
+		slots: { table: { disable: true } },
+		slotProps: { table: { disable: true } },
 	},
-} as ComponentMeta<typeof Switch>;
+};
 
-const Template: ComponentStory<typeof Switch> = (args) => <Switch {...args} />;
+export default meta;
 
-export const Default = Template.bind({});
-Default.args = {
-	disabled: false,
+type Story = StoryObj<typeof Switch>;
+
+export const Default: Story = {
+	args: {
+		disabled: false,
+	},
 };

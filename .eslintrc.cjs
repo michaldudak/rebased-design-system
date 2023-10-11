@@ -8,6 +8,7 @@ module.exports = {
 		'plugin:react/recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react/jsx-runtime',
+		'plugin:storybook/recommended',
 	],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {

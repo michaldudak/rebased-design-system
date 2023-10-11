@@ -1,24 +1,25 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Input, InputSize } from './Input';
 
-export default {
+const meta: Meta<typeof Input> = {
 	title: 'Input',
 	component: Input,
 	argTypes: {
 		ref: { table: { disable: true } },
-		component: { table: { disable: true } },
+		slots: { table: { disable: true } },
+		slotProps: { table: { disable: true } },
 	},
-} as ComponentMeta<typeof Input>;
-
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-	size: InputSize.medium,
 };
 
-export const Multiline = Template.bind({});
-Multiline.args = {
-	multiline: true,
-	size: InputSize.medium,
+export default meta;
+
+type Story = StoryObj<typeof Input>;
+
+export const Default: Story = {};
+
+export const Multiline: Story = {
+	args: {
+		size: InputSize.medium,
+		multiline: true,
+	},
 };
