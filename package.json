@@ -3,7 +3,15 @@
 	"version": "0.0.1",
 	"description": "An exemplary design system implementation built using MUI Base",
 	"type": "module",
-	"main": "index.js",
+	"main": "./build/index.umd.js",
+	"module": "./build/index.js",
+	"exports": {
+		".": {
+			"import": "./build/index.js",
+			"require": "./build/index.umd.cjs"
+		},
+		"./styles": "./build/style.css"
+	},
 	"scripts": {
 		"build": "tsc -p tsconfig.json && vite build",
 		"dev": "storybook dev -p 6006",
